@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6)64vz7t_b=1vq1!lm1o@twty^xfwojgwc8(!qhh=39m_ems#g'
+SECRET_KEY = 'django-insecure-*2h1!)w7ex-vx-&ur52y4263hzv#xiggw+owqm^$z!%*@_nsp-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app_advertisements',
-    'app_lesson_4'
 ]
 
 MIDDLEWARE = [
@@ -56,7 +55,7 @@ ROOT_URLCONF = 'advertisements.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [Path.joinpath(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,6 +116,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+STATICFILES_DIRS = [Path.joinpath(BASE_DIR, 'static')]
 STATIC_URL = 'static/'
 
 # Default primary key field type
