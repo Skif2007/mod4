@@ -17,6 +17,9 @@ class Advertisement(models.Model):
 # Торг
     auction = models.BooleanField("Торг", help_text="Ответьте, если хотите торговаться")
 
+    def __str__(self):
+        return f"Advertisement: Advertisement(id={self.id}, title={self.title}, price={self.price})"
+
     class Meta:
         db_table = 'advertisements'
 # Изображение
