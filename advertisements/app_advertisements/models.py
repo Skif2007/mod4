@@ -41,6 +41,13 @@ class Advertisement(models.Model):
             return format_html("<span style='color:blue; font-weight:hold;'> Сегодня в {}</span>",updated_time)
 
         return self.updated_at.strftime(" %H:%M:%S")
+    @admin.display(description="Фото")
+    def get_html_image(self):
+        if self.image:
+            return format_html(
+                '<img scr="{}" style="max-height:80px; max-width:80px">',
+                self.image.url
+            )
 
     def __str__(self):
         return f"Advertisement: Advertisement(id={self.id}, title={self.title}, price={self.price})"

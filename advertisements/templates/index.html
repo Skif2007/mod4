@@ -6,6 +6,8 @@
 {% endblock %}
 
 {% block content %}
+
+<!--Панель навигации -->
 <ul class="nav nav-pills sticky-top bg-white nav-fill">
   <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="/">
@@ -17,7 +19,7 @@
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="advertisement-post.html">
+    <a class="nav-link" href="{% url 'adv-post' %}">
       <span style="font-weight: bold;">Разместить объявление</span>
     </a>
   </li>
@@ -42,7 +44,7 @@
     </a>
   </li>
 </ul>
-
+<!--Карусель -->
 <div id="carouselExampleControls" class="carousel slide bg-primary" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -64,12 +66,15 @@
     <span class="visually-hidden">Следующий</span>
   </button>
 </div>
+<!-- -->
 <div class="container" style="margin: 50px;">
   <div class="display-2">
     <span class="badge bg-primary">В центре внимания</span>
   </div>
 </div>
+<!-- -->
 <div class="container">
+  <!--Список объявлений -->
   <div class="row">
     <ul class="nav nav-tabs bg-white">
       <li class="nav-item">
@@ -95,12 +100,13 @@
     </form>
   </div>
   <div class="col">
+    <!--Объявление -->
     {% for adv in advertisements %}
     <div class="card mb-2" style="max-width: 1200px; margin-top: 20px;">
       <div class="row g-0">
         <div class="col-md-4">
           <a href="advertisement.html" class="nav-link">
-            <img src="{% if adv.image %} {{ adv.image.url }} {% endif %}" class="img-fluid rounded-start" alt="Card title">
+            <img src="{% if adv.image %} {{ adv.image.url }} {% else %}{% static 'img/1.png' %} {% endif %}" class="img-fluid rounded-start" alt="Card title">
           </a>
         </div>
         <div class="col-md-8">
@@ -123,6 +129,7 @@
     {% endfor %}
   </div>
 </div>
+<!--Подвал -->
 <footer style="padding: 100px;" class="bg-primary">
   <nav class="navbar navbar-expand-sm navbar-dark">
     <a class="navbar-brand" href="#">Добавьте</a>
